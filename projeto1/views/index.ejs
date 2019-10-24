@@ -1,0 +1,28 @@
+<%- include partials/header.ejs %>
+
+<body>
+    <%- include partials/navbar.ejs %>
+    <main>
+        <div>
+            <div class="title-container">
+                <h1>Perguntas</h1>
+                <button>Perguntar</button>
+            </div>
+
+            <div class="ask-container">
+                <% perguntas.forEach(pergunta => { %>
+
+                <div class="ask">
+                    <h2><%= pergunta.titulo %></h2>
+                    <div class="description">
+                        <p><%= pergunta.descricao %></p>
+                        <button>Responder</button>
+                    </div>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </main>
+</body>
+
+<%- include partials/footer.ejs %>
