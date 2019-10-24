@@ -56,6 +56,20 @@ app.post("/salvarpergunta", (req, res) => {
 })
 
 
+app.get("/pergunta/:id", (req, res) => {
+    let id = req.params.id
+    Pergunta.findOne({
+        where: {id: id} //id da tabela seja igual a variável id
+    }).then(pergunta => {
+        if(pergunta != undefined){
+            res.render("pergunta")
+        }else{
+            res.redirect("/")
+        }
+    })
+})
+
+
 
 // servidor
 app.listen(8080, () => {
