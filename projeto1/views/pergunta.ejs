@@ -1,1 +1,35 @@
-<h1>Página da pergunta</h1>
+<%- include partials/header.ejs %>
+
+<body>
+    <%- include partials/navbar.ejs %>
+    <main>
+        <div>
+            <div class="ask-container">
+                <div class="ask">
+                    <h2><%= pergunta.titulo %></h2>
+                    <div class="description-new">
+                        <p><%= pergunta.descricao %></p>
+                    </div>
+                </div>
+
+                <form class="form-container" method="POST" action="/responder">
+                    <h3>Responda</h3>
+                    <textarea class="textarea-height" name="corpo" placeholder="Digite sua resposta"></textarea>
+                    <input type="hidden" name="pergunta" value="<%= pergunta.id%>">
+                    <button type="submit">Responder</button>
+                </form>
+            </div>
+
+            <h3 class="answer-title">Respostas</h3>
+            <div class="answer-container">
+                <% respostas.forEach(resposta =>{ %>
+                <div class="answer">
+                    <p><%= resposta.corpo %></p>
+                </div>
+                <% }) %>
+            </div>
+        </div>
+    </main>
+</body>
+
+<%- include partials/footer.ejs %>

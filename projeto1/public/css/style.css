@@ -60,6 +60,29 @@ main{
     margin-bottom: 40px;
 }
 
+.description-new{
+    padding: 20px;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.form-container{
+    background-color: white;
+}
+
+.textarea-height{
+    height: 80px;
+}
+
+.answer{
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.answer-title{
+    margin-top: 50px;
+}
+
 h2{
     margin: 0px;
     padding: 20px;
