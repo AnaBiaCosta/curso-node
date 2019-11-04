@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Novo Artigo</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>NOVO ARTIGO</h1>
+
+    <div class="form-container">
+            <form method="POST" action="/categories/save">
+                <label>Título:</label>
+                <input type="text" placeholder="Título" name="title" >
+
+                <textarea id="article" name="body" class="text-area"></textarea>
+
+                <select name="category">
+                    <option>Selecione uma categoria</option>
+                    <% categories.forEach((category) => {%>
+                        <option value="<%= category.id %>"><%= category.title %></option>
+                    <% }) %>
+                </select>
+                
+                <button class="btn">Cadastrar</button>
+            </form>
+    </div>
+
+        
+</body>
+</html>
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+    tinymce.init({
+        selector: "#article",
+        plugins: [
+            'advlist autolink link image list print preview hr searchreplace wordcount fullscream insertdatetime media save table paste emoticons'
+        ]
+    })
+
+</script>

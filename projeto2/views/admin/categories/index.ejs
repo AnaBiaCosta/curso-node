@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Categorias</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="back">
+        <h1>CATEGORIAS</h1>
+        <button class="btn"><a href="/admin/categories">Acesse aqui as categorias</a></button>
+        <button class="btn"><a href="/admin/categories/new">Criar nova categoria</a></button>
+    </div>
+
+    <div class="card-container">
+    <% categories.forEach(category => { %>
+        <div class="card">
+            <h2>Categoria <%= category.id %></h2>
+            <p>Título: <%= category.title %></p>
+            <p>Slug: <%= category.slug %></p>
+
+            <div class="btn-container">
+                <button class="btn card-button"><a href="/admin/categories/edit/<%= category.id %>">Editar</a></button>
+
+                <form onsubmit="confirmarDelecao(event, this)" method="POST" action="/categories/delete"
+                    style="display: inline;">
+                    <input type="hidden" name="id" value="<%= category.id %>">
+                    <button class="btn card-button">Deletar</button>
+                </form>
+            </div>
+        </div>
+    <% }) %>
+    </div>
+</body>
+</html>
+
+
+<script>
+    function confirmarDelecao(event, form) {
+        //previne que o formulário seja submetido 
+        event.preventDefault()
+
+        let decision = confirm("Você tem certeza que quer deletar esta categoria?")
+
+        if (decision) {
+            form.submit()
+        }
+    }
+</script>
+
+
+
+
+
+
+    <!-- <% categories.forEach(category => { %>
+                <tr>
+                    <th><%= category.id %></th>
+                    <th><%= category.title %></th>
+                    <th><%= category.slug %></th>
+                    <th>
+                        <a href="/admin/categories/edit/<%= category.id %>"><button>Editar</button></a>
+
+                        <form onsubmit="confirmarDelecao(event, dis)" method="POST" action="/categories/delete"
+                            style="display: inline;">
+                            <input type="hidden" name="id" value="<%= category.id %>">
+                            <button>Deletar</button>
+                        </form>
+
+                    </th>
+                </tr>
+                <% }) %> -->
+
+
+    <!-- 
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>título</th>
+                    <th>Slug</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <% categories.forEach(category => { %>
+                <tr>
+                    <th><%= category.id %></th>
+                    <th><%= category.title %></th>
+                    <th><%= category.slug %></th>
+                    <th>
+                        <a href="/admin/categories/edit/<%= category.id %>"><button>Editar</button></a>
+
+                        <form onsubmit="confirmarDelecao(event, dis)" method="POST" action="/categories/delete"
+                            style="display: inline;">
+                            <input type="hidden" name="id" value="<%= category.id %>">
+                            <button>Deletar</button>
+                        </form>
+
+                    </th>
+                </tr>
+                <% }) %>
+
+            </tbody>
+        </table> -->

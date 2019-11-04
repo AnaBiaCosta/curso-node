@@ -1,0 +1,146 @@
+body {
+    margin: 20px 0px;
+    padding: 0px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+}
+
+.principal {
+    border: 2px solid palevioletred;
+    border-radius: 10px;
+    width: 50%;
+    padding: 2%;
+    margin-top: 20px;
+    background-color: palevioletred;
+    color: white;
+    text-align: center;
+    margin: auto
+}
+
+.principal a {
+    color: white;
+    text-decoration: none;
+}
+
+.principal a:hover {
+    color: black
+}
+
+.back {
+    text-align: center;
+    margin-top: 1%;
+    /* margin-bottom: 5%; */
+}
+
+.btn {
+    border: 2px solid palevioletred;
+    background-color: palevioletred;
+    padding: 1%;
+    font-size: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: pink;
+    border: 2px solid pink;
+}
+
+.btn a {
+    text-decoration: none;
+    color: white
+}
+
+.card {
+    width: 25%;
+    border: 2px solid black;
+    background-color: black;
+    border-radius: 10px;
+    color: white;
+    padding: 2%;
+    margin-top: 4%;
+    text-align: center;
+}
+
+table {
+    border: 2px solid red
+}
+
+thead {
+    background-color: red;
+    border-bottom: 2px solid black;
+}
+
+table tr th {
+    padding: 10px;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.card-button{
+    padding: 3%;
+}
+
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: 0% 10%;
+}
+
+h1{
+    margin-bottom: 3%;
+    text-align: center;
+}
+
+h2{
+    margin-top: 0px
+}
+
+
+.form{
+    border: 2px solid palevioletred;
+    border-radius: 5px;
+    width: 50%;
+    margin: auto; 
+    padding: 2%;
+}
+
+form input{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1%;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 3% 0%;
+}
+
+.form-container{
+    border: 2px solid palevioletred;
+    width: 70%;
+    margin: auto;
+    padding: 2%;
+}
+
+select{
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1%;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 3% 0%;
+}
+
+.label{
+    margin-bottom: 3% 0%;
+}
+
+input, select, button:focus{
+    outline: 0;
+}
