@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Artigos</title>
+    <link rel="stylesheet" href="../../../css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="back">
+        <h1>ARTIGOS</h1>
+        <button class="btn"><a href="/admin/articles">Todos os artigos</a></button>
+        <button class="btn"><a href="/admin/articles/new">Criar novo artigo</a></button>
+    </div>
+
+    <div class="card-container">
+        <% articles.forEach(article => { %>
+        <div class="card">
+            <h2><%= article.title %></h2>
+            <p><%= article.body %></p>
+            <p><%= article.categoryId %></p>
+
+
+            <div class="btn-container">
+                <button class="btn card-button">
+                    <a href="/admin/articles/edit/<%= article.id %>">Editar</a>
+                </button>
+
+                <form onsubmit="confirmarDelecao(event, this)" method="POST" action="/articles/delete" style="display: inline;">
+                    <input type="hidden" name="id" value="<%= article.id %>">
+                    <button class="btn card-button">Deletar</button>
+                </form>
+            </div>
+        </div>
+        <% })%>
+    </div>
+</body>
+</html>
+
+
+<script>
+        function confirmarDelecao(event, form) {
+            //previne que o formulário seja submetido 
+            event.preventDefault()
+    
+            let decision = confirm("Você tem certeza que quer deletar esta categoria?")
+    
+            if (decision) {
+                form.submit()
+            }
+        }
+</script>

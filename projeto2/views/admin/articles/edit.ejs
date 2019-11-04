@@ -9,23 +9,15 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>NOVO ARTIGO</h1>
+    <h1>EDITAR ARQUIVO</h1>
 
     <div class="form-container">
-            <form method="POST" action="/articles/save">
+            <form method="POST" action="/articles/update">
                 <label>Título:</label>
-                <input type="text" placeholder="Título" name="title" >
-
-                <textarea id="article" name="body" class="text-area"></textarea>
-
-                <select name="category">
-                    <option>Selecione uma categoria</option>
-                    <% categories.forEach((category) => {%>
-                        <option value="<%= category.id %>"><%= category.title %></option>
-                    <% }) %>
-                </select>
+                <input type="text" placeholder="Título" name="title"  value="<%= article.title %>" >
+                <textarea id="article" name="body" class="text-area"><%= article.body %></textarea><br><br><br>
                 
-                <button class="btn">Cadastrar</button>
+                <button class="btn">Editar</button>
             </form>
     </div>
 
