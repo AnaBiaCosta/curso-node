@@ -15,13 +15,11 @@
             <form method="POST" action="/articles/update">
                 <label>Título:</label>
                 <input type="text" placeholder="Título" name="title"  value="<%= article.title %>" >
-                <textarea id="article" name="body" class="text-area"><%= article.body %></textarea><br><br><br>
-                
-                <button class="btn">Editar</button>
+                <textarea id="article" name="body" class="text-area"><%= article.body %></textarea>
+                <input type="hidden" name="id" value="<%= article.id %>">
+                <button class="btn mt">Editar</button>
             </form>
-    </div>
-
-        
+    </div>  
 </body>
 </html>
 

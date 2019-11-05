@@ -29,7 +29,6 @@ router.post("/articles/save", (req, res) => {
     let title = req.body.title
     let body = req.body.body
     let category = req.body.category
-    console.log("sou a categoria " + category)
 
     if(title != undefined){
         Article.create({
@@ -96,8 +95,14 @@ router.post("/articles/update", (req, res) => {
         where:{id: id}
     }).then(() => {
         res.redirect("/admin/articles")
+    }).catch(() =>{
+        res.send(console.log(id))
     })
 })
+
+
+
+
 
 
 
