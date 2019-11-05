@@ -97,6 +97,7 @@ table tr th {
 h1{
     margin-bottom: 3%;
     text-align: center;
+    font-size: 40px;
 }
 
 h2{
@@ -123,9 +124,11 @@ form input{
 
 .form-container{
     border: 2px solid palevioletred;
-    width: 70%;
+    width: 100%;
     margin: auto;
     padding: 2%;
+    box-sizing: border-box;
+    margin-bottom: 3%
 }
 
 select{
@@ -147,4 +150,14 @@ input, select, button:focus{
 
 .mt{
     margin-top: 3%;
+}
+
+.container{
+    width: 70%;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+.btn-back{
+    width: 100%;
 }

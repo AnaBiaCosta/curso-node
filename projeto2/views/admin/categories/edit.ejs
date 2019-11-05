@@ -11,13 +11,17 @@
 </head>
 
 <body>
-    <h1>EDITAR CATEGORIA</h1>
-    <form class="form" method="POST" action="/categories/update">
-        <label>Novo título</label>
-        <input type="text" placeholder="título" name="title" value="<%= category.title %>">
-        <input type="hidden" name="id" value="<%= category.id %>">
-        <button class="btn">Editar</button>
-    </form>
+    <section class="container">
+        <h1>EDITAR CATEGORIA</h1>
+        <form class="form-container" method="POST" action="/categories/update">
+            <label>Novo título</label>
+            <input type="text" placeholder="título" name="title" value="<%= category.title %>">
+            <input type="hidden" name="id" value="<%= category.id %>">
+            <button class="btn">Editar</button>
+        </form>
+
+        <button class="btn btn-back"><a href="/admin/categories">Voltar</a></button>
+    </section>
 </body>
 
 </html>

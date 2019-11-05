@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,19 +9,26 @@
     <link rel="stylesheet" href="../../../css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
 </head>
-<body>
-    <h1>EDITAR ARQUIVO</h1>
 
-    <div class="form-container">
+<body>
+    <section class="container">
+        <h1>EDITAR ARQUIVO</h1>
+
+        <div class="form-container">
             <form method="POST" action="/articles/update">
                 <label>Título:</label>
-                <input type="text" placeholder="Título" name="title"  value="<%= article.title %>" >
+                <input type="text" placeholder="Título" name="title" value="<%= article.title %>">
                 <textarea id="article" name="body" class="text-area"><%= article.body %></textarea>
                 <input type="hidden" name="id" value="<%= article.id %>">
+
                 <button class="btn mt">Editar</button>
             </form>
-    </div>  
+        </div>
+
+        <a href="/admin/articles"><button class="btn btn-back">Voltar</button></a>
+    </section>
 </body>
+
 </html>
 
 <script src="/tinymce/tinymce.min.js"></script>
