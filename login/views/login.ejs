@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="/css/style-all.css">
+    <link rel="stylesheet" href="/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
     <title>Login</title>
 </head>
 
 <body>
-    <h1 class="title">Bem vindo</h1>
-
     <section>
-            <a href="/register">Ir para Cadastro</a>
-            <a href="/login">Ir para Login</a>
+        <h1>LOGIN</h1>
+        <form method="POST" action="/login/save">
+            <input type="text" name="email" placeholder="email">
+            <input type="text" name="password" placeholder="senha">
+            <button>Enviar</button>
+        </form>
     </section>
-
 </body>
 
 </html>

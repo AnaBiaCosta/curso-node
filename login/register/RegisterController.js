@@ -2,10 +2,21 @@ const express = require("express")
 const router = express.Router()
 const Register = require("./Register")
 
-//TODOS OS USUÁRIOS
+
+//CADASTRO
+router.get("/register", (req, res) => {
+    res.render("register")
+})
+
+//LOGIN
+router.get("/login", (req, res) => {
+    res.render("login")
+})
+
+//CADASTRO SUCESSO
 router.get("/users", (req, res) => {
     Register.findAll().then(registers => {
-        res.render("users", {registers: registers})
+        res.render("register-sucess", {registers: registers})
     })
 })
 
@@ -23,7 +34,7 @@ router.post("/register/save", (req, res) =>{
             password: password
         }).then(() =>{
             Register.findAll().then(registers => {
-                res.render("ok", {registers: registers})
+                res.render("register-sucess", {registers: registers})
             })
         })
     }else{
@@ -32,7 +43,8 @@ router.post("/register/save", (req, res) =>{
 })
 
 
-router.post("/login", (req, res) => {
+//LOGIN 
+router.post("/login/save", (req, res) => {
     let email = req.body.email
     let password = req.body.password
 
@@ -40,9 +52,9 @@ router.post("/login", (req, res) => {
         where: {email:email, password:password}
     }).then(register =>{
         if(register && password == register.get('password') && email == register.get('email')){
-            res.render("users")
+            res.render("login-sucess")
         }else{
-            res.render("error")
+            res.render("login-error")
         }
     })
 })

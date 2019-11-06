@@ -9,21 +9,43 @@ body{
 }
 
 a{
-    margin-bottom: 40px;;
+    margin-bottom: 40px;
+    color: white;
 }
 
 .card-container{
-    border: 2px solid white;
+    border-radius: 5px;
+    color: #4EB4BF;
     margin-top: 30px;
-    padding: 30px;
+    width: 30%;
+    padding: 2%;
+    text-align: center;
+    background-color: white;
 }
 
 .container{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
-    width: 50%;
-    /* border: 1px solid black; */
+    width: 70%;
     box-sizing: border-box;
     flex-wrap: wrap;
+}
+
+.pop-up{
+    background-color: white;
+    color: #4EB4BF;
+    border-radius: 5px;
+    padding: 0px 4%;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.pop-up h1{
+    font-size: 40px;
+}
+
+.pop-up p a{
+    color: #4EB4BF
+
 }
