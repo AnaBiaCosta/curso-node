@@ -1,0 +1,29 @@
+body{
+    background-color: #F29F05;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: center;
+    margin: 0px 100px;
+    font-family: 'Raleway', sans-serif;
+}
+
+a{
+    margin-bottom: 40px;;
+}
+
+.card-container{
+    border: 2px solid white;
+    margin-top: 30px;
+    padding: 30px;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    /* border: 1px solid black; */
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}

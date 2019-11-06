@@ -1,0 +1,31 @@
+
+    <link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
+</head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style2.css">
+<body>
+    <h1>CADASTRO EFETUADO COM SUCESSO</h1>
+    <a href="/">Voltar</a>
+
+  <div class="container">
+    <% registers.forEach(user => { %>
+        <div class="card-container">
+            <p>Nome: <%= user.name %> </p>
+            <p>Email: <%= user.email %> </p>
+            <p>Senha: <%= user.password %> </p>
+        </div>
+        <%  }) %>
+  </div>
+
+
+
+</body>
+
+</html>

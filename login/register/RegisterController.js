@@ -22,7 +22,9 @@ router.post("/register/save", (req, res) =>{
             email: email,
             password: password
         }).then(() =>{
-            res.send(console.log("DADOS ENVIADOS"))
+            Register.findAll().then(registers => {
+                res.render("ok", {registers: registers})
+            })
         })
     }else{
         res.send(console.log("DEU RUIM"))
@@ -31,12 +33,17 @@ router.post("/register/save", (req, res) =>{
 
 
 router.post("/login", (req, res) => {
-    let name = req.body.name
     let email = req.body.email
     let password = req.body.password
 
-    Register.findAll().then(registers => {
-        res.render("users", {registers: registers})
+    Register.findOne({
+        where: {email:email, password:password}
+    }).then(register =>{
+        if(register && password == register.get('password') && email == register.get('email')){
+            res.render("users")
+        }else{
+            res.render("error")
+        }
     })
 })
 

@@ -50,3 +50,7 @@ button:hover{
 img{
     width: 200px;
 }
+
+.erro{
+    display: none;
+}
