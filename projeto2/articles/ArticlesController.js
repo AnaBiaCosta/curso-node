@@ -7,8 +7,11 @@ const slugify = require("slugify")
 
 
 //TODOS OS ARTIGOS
-router.get("/admin/articles", (req, res) =>{
-    Article.findAll().then((articles) => {
+router.get("/admin/articles", (req, res) => {
+    Article.findAll({
+        include: [{model: Category}],
+        order: [['id', 'DESC']]
+    }).then((articles) => {
         res.render("admin/articles/index", {
             articles: articles
         })
@@ -17,9 +20,9 @@ router.get("/admin/articles", (req, res) =>{
 
 
 //NOVO ARTIGO
-router.get("/admin/articles/new", (req, res) =>{
+router.get("/admin/articles/new", (req, res) => {
     Category.findAll().then(categories => {
-        res.render("admin/articles/new", {categories: categories})
+        res.render("admin/articles/new", { categories: categories })
     })
 })
 
@@ -30,18 +33,15 @@ router.post("/articles/save", (req, res) => {
     let body = req.body.body
     let category = req.body.category
 
-    if(title != undefined){
-        Article.create({
-            title: title,
-            slug: slugify(title),
-            body: body,
-            categoryId: category
-        }).then(() => {
-            res.redirect("/admin/articles")
-        })
-    }else{
-        res.redirect("/admin/articles/new")
-    }
+    Article.create({
+        title: title,
+        slug: slugify(title),
+        body: body,
+        categoryId: category
+    }).then(() => {
+        res.redirect("/admin/articles")
+    })
+
 })
 
 
@@ -49,17 +49,17 @@ router.post("/articles/save", (req, res) => {
 router.post("/articles/delete", (req, res) => {
     let id = req.body.id
 
-    if(id != undefined){
-        if(!isNaN(id)){
+    if (id != undefined) {
+        if (!isNaN(id)) {
             Article.destroy({
-                where: {id:id}
+                where: { id: id }
             }).then(() => {
                 res.redirect("/admin/articles")
             })
-        }else{ //não é número
+        } else { //não é número
             res.redirect("/admin/articles")
         }
-    }else{ //null
+    } else { //null
         res.redirect("/admin/articles")
     }
 })
@@ -69,14 +69,14 @@ router.post("/articles/delete", (req, res) => {
 router.get("/admin/articles/edit/:id", (req, res) => {
     let id = req.params.id
 
-    if(isNaN(id)){
+    if (isNaN(id)) {
         res.redirect("/admin/articles")
     }
 
     Article.findByPk(id).then(article => {
-        if(article != undefined){
-            res.render("admin/articles/edit", {article: article})
-        }else{
+        if (article != undefined) {
+            res.render("admin/articles/edit", { article: article })
+        } else {
             res.redirect("/admin/articles")
         }
     }).catch(erro => {
@@ -91,11 +91,11 @@ router.post("/articles/update", (req, res) => {
     let title = req.body.title
     let body = req.body.body
 
-    Article.update({title:title, slug:slugify(title), body:body},{
-        where:{id: id}
+    Article.update({ title: title, slug: slugify(title), body: body }, {
+        where: { id: id }
     }).then(() => {
         res.redirect("/admin/articles")
-    }).catch(() =>{
+    }).catch(() => {
         res.send(console.log(id))
     })
 })

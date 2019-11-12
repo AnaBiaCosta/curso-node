@@ -21,13 +21,19 @@
 
     <div class="card-container">
         <% articles.forEach(article => { %>
-        <div class="card">
+        <div class="card2">
             <h2><%= article.title %></h2>
+            <p>Categoria: <%= article.category.title %></p>
             <p><%= article.body %></p>
-            <p><%= article.categoryId %></p>
+            
 
 
             <div class="btn-container">
+
+                <button class="btn card-button">
+                    <a href="/<%= article.slug %>">Ler artigo</a>
+                </button>
+
                 <button class="btn card-button">
                     <a href="/admin/articles/edit/<%= article.id %>">Editar</a>
                 </button>

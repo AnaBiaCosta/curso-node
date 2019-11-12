@@ -18,7 +18,7 @@
 
                 <textarea id="article" name="body" class="text-area"></textarea>
 
-                <select name="category">
+                <select name="category" style="border:1px solid #F29F05">
                     <option>Selecione uma categoria</option>
                     <% categories.forEach((category) => {%>
                         <option value="<%= category.id %>"><%= category.title %></option>
